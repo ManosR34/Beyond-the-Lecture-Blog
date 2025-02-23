@@ -1,5 +1,6 @@
 import express from "express";
 import ejs from "ejs";
+import path from "path";
 
 const app = express();
 const port = 3000;

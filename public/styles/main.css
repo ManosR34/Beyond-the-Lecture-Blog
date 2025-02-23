@@ -1,54 +1,146 @@
-* {box-sizing: border-box;}
+/* Color Palette:
+Dark Blue (#1B365D) – Represents intelligence, trust, and authority.
+Steel Gray (#4A5568) – A neutral, professional tone for balance.
+Cool White (#F7F9FC) – Clean, minimal, and easy to read.
+Muted Gold (#C9A66B) – Adds a refined, prestigious touch.
+Deep Teal (#2C6E68) – A modern, cool contrast to blue.
+*/
 
 body { 
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.header {
-  overflow: hidden;
-  background-color: #f1f1f1;
-  padding: 20px 10px;
+.background-image {
+  height: 100vh;
+  width: 100vw;
+  z-index: -100;
+  position: fixed;
+  object-fit: cover;
+}
+.container {
+  width: 85%;
+  max-width: 1400px;
+  min-width: 760px;
+  margin: auto;
+  box-shadow: 5px 0 10px #4A5568;
 }
 
-.header a {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-  border-radius: 4px;
+/* Header section */
+.header-container{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #F7F9FC;
+  height: 60px;
+  background-color: #1B365D;
+  margin-bottom: 20px;
+  max-width: 100%;
 }
 
-.header a.logo {
-  font-size: 25px;
+/* Header section -> Logo */
+.logo {
+  font-size: 24px;
   font-weight: bold;
+  padding-left: 20px;
+  flex-basis: 30%;
 }
 
-.header a:hover {
-  background-color: #ddd;
-  color: black;
+/* Header section -> Navigation Links */
+.nav-links{
+  display: flex;
+  justify-content: flex-end;
+
+  flex-basis: 70%;
+  width: 450px;
+  padding-right: 20px;
 }
 
-.header a.active {
-  background-color: dodgerblue;
-  color: white;
+.nav-links li {
+  list-style-type: none;
+  padding: 7px 10px;
 }
 
-.header-right {
-  float: right;
+.nav-links li:hover {
+  background-color: #4A5568;
+  color: #F7F9FC;
+  border-radius: 6px;
+}
+.nav-links a {
+  color: #F7F9FC;
+  text-decoration: none;
+  font-size: 18px;  
 }
 
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
+/* Hamburger Icon Menu */
+.hamburger-menu {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  padding-inline: 20px;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #F7F9FC;
+  padding: 20px;
+}
+
+.hero-image{
+  border-radius: 50%;
+  max-width: 30%;
+  min-width: 250px;
+  height: auto;
+  float: left;
+  padding: 0 20px 10px 20px;
+}
+
+.after-hero > p{
+  max-width: 100%;
+  clear: both;
+  text-align: justify;
+  background-color: #F7F9FC;
+  padding: 20px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  height: 50px;
+  color: #F7F9FC;
+  background-color: #1B365D;
+  padding-inline: 20px;
+}
+
+@media screen and (max-width: 780px) {
+  .container{
+    width: 100%;
+    min-width: 100%;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #1B365D;
+    width: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+.hamburger-menu {
     display: block;
-    text-align: left;
-  }
-  
-  .header-right {
-    float: none;
-  }
+}
 }
