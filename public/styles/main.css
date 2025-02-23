@@ -103,7 +103,6 @@ body {
 
 .after-hero > p{
   max-width: 100%;
-  clear: both;
   text-align: justify;
   background-color: #F7F9FC;
   padding: 20px;
@@ -120,6 +119,9 @@ footer {
 }
 
 @media screen and (max-width: 780px) {
+  body{
+    font-size: 0.9em;
+  }
   .container{
     width: 100%;
     min-width: 100%;
@@ -143,4 +145,23 @@ footer {
 .hamburger-menu {
     display: block;
 }
+}
+
+
+@media screen and (max-width: 480px) {
+  body{
+    font-size: 0.8em;
+  }
+  .logo {
+    flex-basis: 80%;
+  }
+
+  .hero {
+    display: block;
+    
+  }
+  
+  .hero-image{
+    float: none;
+  }
 }
