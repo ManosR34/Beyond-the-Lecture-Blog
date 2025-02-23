@@ -16,6 +16,22 @@ app.get("/", (req, res) => {
     res.render("index.ejs");
 });
 
+app.get("/publications", (req, res) => {
+    res.render("index.ejs");
+});
+
+app.get("/teaching", (req, res) => {
+    res.render("index.ejs");
+});
+
+app.get("/media", (req, res) => {
+    res.render("index.ejs");
+});
+
+app.get("/contact", (req, res) => {
+    res.render("index.ejs");
+});
+
 app.listen( port, (err) => {
     if (err) console.log(err);
     console.log(`Server stated at port: ${port}`);

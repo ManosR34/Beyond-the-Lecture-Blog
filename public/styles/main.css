@@ -49,6 +49,10 @@ body {
   padding-left: 20px;
   flex-basis: 30%;
 }
+.logo > a{
+  color: #F7F9FC;
+  text-decoration: none;
+}
 
 /* Header section -> Navigation Links */
 .nav-links{
@@ -86,10 +90,17 @@ body {
 
 /* Hero Section */
 .hero {
-  text-align: center;
   margin-bottom: 20px;
   background-color: #F7F9FC;
   padding: 20px;
+}
+.hero > h1 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.hero > p {
+  text-align: justify;
 }
 
 .hero-image{
@@ -100,7 +111,6 @@ body {
   float: left;
   padding: 0 20px 10px 20px;
 }
-
 .after-hero > p{
   max-width: 100%;
   text-align: justify;
@@ -149,16 +159,13 @@ footer {
 
 
 @media screen and (max-width: 480px) {
-  body{
-    font-size: 0.8em;
-  }
   .logo {
     flex-basis: 80%;
   }
 
   .hero {
     display: block;
-    
+    text-align: center;
   }
   
   .hero-image{
