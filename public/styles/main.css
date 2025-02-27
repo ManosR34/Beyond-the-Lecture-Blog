@@ -4,12 +4,16 @@ Steel Gray (#4A5568) – A neutral, professional tone for balance.
 Cool White (#F7F9FC) – Clean, minimal, and easy to read.
 Muted Gold (#C9A66B) – Adds a refined, prestigious touch.
 Deep Teal (#2C6E68) – A modern, cool contrast to blue.
+Blue #264191
+Lighter Blue #4160b6
+gradient (#264191, #4160b6)
+Very Light Beige #f3f3f3
 */
 
 body { 
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #F7F9FC;
+  background-color: #f3f3f3;
 }
 /*
 .background-image {
@@ -30,7 +34,7 @@ body {
 
 /* Header section */
 .header-container{
-  background-image: linear-gradient(#1B365D, #76869e);
+  background-image: linear-gradient(#264191, #4160b6);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -39,21 +43,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #F7F9FC;
+  color: #f3f3f3;
   height: 60px;
 
   max-width: 100%;
 }
 
 /* Header section -> Logo */
-.logo img {
+.logo > img, a {
   font-size: 24px;
   height: 30px;
   font-weight: bold;
   padding-left: 20px;
   flex-basis: 30%;
-}
-.logo > a{
   color: #F7F9FC;
   text-decoration: none;
 }
@@ -75,11 +77,11 @@ body {
 
 .nav-links li:hover {
   background-color: #4A5568;
-  color: #F7F9FC;
+  color: #f3f3f3;
   border-radius: 6px;
 }
 .nav-links a {
-  color: #F7F9FC;
+  color: #f3f3f3;
   text-decoration: none;
   font-size: 18px;  
 }
@@ -96,17 +98,17 @@ body {
 .hero {
   display: block;
   margin-bottom: 20px;
-  background-image: linear-gradient(#76869e, #ccd3dc);
+  background-color: #f3f3f3;
   padding: 20px;
 }
-.hero > h1 {
+.initial-header{
   display: inline;
   text-align: center;
   border: #1B365D;
   border-style: solid;
 }
 
-.hero > p {
+.initial-statement {
   text-align: justify;
   padding-block: 0;
 }
@@ -150,7 +152,7 @@ footer {
   max-width: 100%;
   height: 50px;
   color: #F7F9FC;
-  background-image: linear-gradient(#76869e, #1B365D);
+  background-image: linear-gradient(to right,#264191, #4160b6);
   padding-inline: 20px;
 }
 
@@ -189,16 +191,147 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+    max-width: 480px;
+    min-width: 280px;
+    margin: auto;
+    box-shadow: 5px 0px 10px -10px #4A5568;
+  }
+  .header-container{
+    background-image: linear-gradient(to right,#264191, #4160b6);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
   .logo {
     flex-basis: 80%;
   }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-image: linear-gradient(to right,#264191, #4160b6);
+    width: auto;
+    text-align: center;
+    padding: 10px;
+}
+  .below-header{
+    height: 50px;
+    width: 100%;
+    background-image: linear-gradient(to right,#264191, #4160b6);
+  }
 
   .hero {
+    background-color: #f3f3f3;
     display: block;
     text-align: center;
+    border-radius: 40px;
+    position: relative;
+    top: -50px;
+    padding-top: 10px;
+    margin-bottom: -30px;
+    padding-bottom: 0;
   }
   
   .hero-image{
     float: none;
+    width: 90%;
+    max-width: 90%;
+    border-radius: 0;
+    padding-bottom: 0;
+    box-shadow: 0px 10px 10px -10px #4A5568;
   }
+  .initial-header{
+    position:relative;
+    top: -40px;
+    color: #f3f3f3;
+    font-size: 2rem;
+    border: none;
+  }
+  /*
+  .initial-statement{
+    background-image: linear-gradient(to right,#264191, #4160b6);
+    padding: 15px;
+    border-radius: 20px;
+    color: #f3f3f3;
+    box-shadow: 0px 10px 10px -10px #4A5568;
+  }
+  .initial-statement > p{
+    margin: 0;
+  }
+  .initial-statement > h2{
+    margin: 0;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  */
+   
+ 
+  .initial-statement{
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-radius: 30px;
+    color: black;
+    border: 10px solid transparent;
+    background: linear-gradient(#f3f3f3, #f3f3f3) padding-box
+    ,linear-gradient(to right,#264191, #4160b6) border-box;
+    box-shadow: 0px 10px 10px -10px #4A5568;
+  }
+  .initial-statement > p{
+    margin: 0;
+  }
+  .initial-statement > h2{
+    margin: 0;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+/*
+  .main-section{
+    margin: auto;
+    margin-block: 20px;
+    width: 90%;
+    display: grid;
+    gap: 20px;
+    grid-template-rows: repeat(3, 1fr);
+
+  }
+  .main-section-column{
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-radius: 30px;
+    color: black;
+    border: 10px solid transparent;
+    background: linear-gradient(#f3f3f3, #f3f3f3) padding-box
+    ,linear-gradient(to right,#264191, #4160b6) border-box;
+    box-shadow: 0px 10px 10px -10px #4A5568;
+  }
+  .main-section-column h2{
+    text-align: center;
+    margin: 0;
+  }
+    */
+
+    .main-section{
+      margin: auto;
+      margin-block: 20px;
+      width: 90%;
+      display: grid;
+      gap: 20px;
+      grid-template-rows: repeat(3, 1fr);
+  
+    }
+    .main-section-column{
+      background-image: linear-gradient(to right,#264191, #4160b6);
+      padding: 15px;
+      border-radius: 30px;
+      color: #f3f3f3;
+      box-shadow: 0px 10px 10px -10px #4A5568;
+    }
+    .main-section-column h2{
+      text-align: center;
+      margin: 0;
+    }
 }
