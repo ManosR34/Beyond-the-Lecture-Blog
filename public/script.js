@@ -1,3 +1,3 @@
 function toggleMenu() {
-    document.querySelector(".nav-links").classList.toggle("active");
+    document.querySelector(".headerContainer__navLinks").classList.toggle("active");
 }
