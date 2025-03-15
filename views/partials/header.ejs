@@ -1,19 +1,23 @@
-<div class="headerContainer">
+<header class="headerContainer">
   <nav class="headerContainer__navbar">
     <!-- <div href="/" class="logo"><a href="/"><img src="./images/LogoName.jpg"></a></div> -->
     <div href="/" class="logo"><a href="/">PONGO</a></div>
 
-    <ul class="headerContainer__navLinks">
-        <li><a href="/">Home</a></li>
-        <li><a href="/publications">Publications</a></li>
-        <li><a href="/teaching">Teaching</a></li>
-        <li><a href="/media">Media</a></li>
-        <li><a href="/contact">Contact</a></li>
+    <button id="open-sidebar-button" onclick="openSideBar()">&#9776;</button>
+
+    <ul class="headerContainer__navLinks" id="navBar">
+      <li><button id="close-sidebar-button" onclick="closeSideBar()">&#9747;</button></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/teaching">Teaching</a></li>
+      <li><a href="/media">Media</a></li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
-
-    <div class="responsiveMenuIcon" onclick="toggleMenu()">&#9776;</div>
+    <!-- <div class="responsiveMenuIcon" onclick="toggleMenu()">&#9776;</div> -->
   </nav>
-</div>
+  <div id="overlay" onclick="closeSideBar()" aria-hidden="true"></div>
+</header>
 
 
-<script src="/script.js"></script>
+
+<script src="/script.js" defer></script>
