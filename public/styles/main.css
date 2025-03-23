@@ -4,7 +4,7 @@ naming convention is used
 */
 
 :root {
-  --ff: 'Times New Roman', Georgia, Garamond; /* Avenir Next */
+  --ff: "Avenir Next", 'Times New Roman', Georgia, Garamond; /* Avenir Next */
   --white: white;
   --white2: white;
   --steelGrey: #4A5568;
@@ -103,9 +103,9 @@ body {
 }
 /* Header section -> Logo */
 .logo > img, .logo > a {
-  font-size: 1.5rem;
+  font-size: 2.4rem;
   height: 2.2rem;
-  font-weight: bold;
+  font-weight: 350;
   flex-basis: 80%;
   color: var(--darkColor);
 }
@@ -165,12 +165,14 @@ body {
   display: inline-block;
   font-size: 2.2rem;
   padding: 1.2rem;
+  font-weight: 350;
   width: 100%;
   color: var(--darkColor);
 }
 
 .headerContainer__navLinks a:hover {
-  background-color: var(--hoverColor);
+  scale: 1.12;
+  font-weight: 400;
 }
 .headerContainer__navLinks a.active {
   text-decoration: underline;
@@ -202,7 +204,13 @@ body {
 }
 #initialContainer > h2 {
   font-size: 3rem;
+  font-weight: 350;
 }
+#initialContainer > h3 {
+
+  font-weight: 350;
+}
+
 
 .socialMediaIcons > img {
   width: 2.5rem;
@@ -333,10 +341,10 @@ body {
   }
 
   .logo > img, .logo > a {
-    font-size: 1.5rem;
+    font-size: 2rem;
     height: 1.8rem;
     padding-left: 0.9rem;
-    font-weight: bold;
+
     flex-basis: 25%;
     color: var(--darkColor);
   }
@@ -367,7 +375,7 @@ body {
   }
   
   .headerContainer__navLinks a:hover {
-    background-color: var(--hoverColor);
+    
   }
   .socialMediaIcons > img {
     width: 1.4rem;
@@ -409,13 +417,13 @@ body {
     grid-template-columns: 1fr 3fr;
   }
   .headerContainer__navLinks a {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
 /*==============1440px================*/
 @media screen and (min-width: 1440px) {
   .headerContainer__navLinks a {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 }
