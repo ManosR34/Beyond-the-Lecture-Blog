@@ -3,37 +3,44 @@ The BEM -> Block, Element, Modifier
 naming convention is used 
 */
 
-/*== reset all the text-sizes ==*/
-html {
-  font-size: clamp(0.9rem, 1.2vw, 1rem);
-}
-
-/* Color Palette: */
 :root {
+  --ff: 'Times New Roman', Georgia, Garamond;
   --white: white;
   --white2: white;
   --steelGrey: #4A5568;
   --hoverColor: grey;
   --darkColor: black;
-  --headerHeightMobile: 2.7rem;
+  --headerHeightMobile: 3.5rem;
   --headerHeightPC: 2.7rem;
-  --containersWidthMobile: 1200;
-  --containersWidthPC: ;
+  --containersWidthMobile: clamp(150px, 100%, 768px);
+  --containersWidthPC: clamp(768px, 95%, 2000px);
 }
 
 /* Initialisation of everything */
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
   box-sizing: border-box;
+  font-family: var(--ff);
+}
+
+/*== reset all the text-sizes ==*/
+html {
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
 }
 
 body { 
   font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
   min-height: 100dvh;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
 }
+
 
 .backgroundImage {
   position: fixed;
@@ -49,11 +56,20 @@ body {
 }
 
 .container {
-  width: 100%;
-  max-width: var(--containersWidthMobile);
-  min-width: 150px;
+  width: var(--containersWidthMobile);
   box-shadow: 5px 0px 10px -10px var(--steelGrey);
   margin: auto;
+}
+
+.container:nth-child(odd) {
+  background-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 5px 0px 10px -10px var(--steelGrey);
+}
+
+.container:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 5px 0px 10px -10px var(--steelGrey);
 }
 
 /* Header section */
@@ -66,28 +82,30 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  /* This is to remove the gap from the below element */
+  margin-bottom: -1.5rem;
+  padding-inline: 1rem;
 }
 
 .headerContainer * {
   list-style: none;
   text-decoration: none;
-
 }
 
 .headerContainer__navbar {
-  width: 100%;
+  width: var(--containersWidthMobile);
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: var(--darkColor);
+  
 }
 /* Header section -> Logo */
 .logo > img, .logo > a {
   font-size: 1.5rem;
   height: 2.2rem;
   font-weight: bold;
-  padding-left: 1.5rem;
   flex-basis: 80%;
   color: var(--darkColor);
 }
@@ -98,12 +116,12 @@ body {
 
 .headerContainer__navLinks {
   position: fixed;
-  top: 0;
   right: -110%;
-  height: 100dvh;
+  top: var(--headerHeightMobile);
+  height: calc(100dvh - var(--headerHeightMobile));
   width: min(350px, 100%);
   z-index: 10;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -122,7 +140,7 @@ body {
   background: none;
   border: none;
   font-size: 1.8rem;
-  padding: 0.5rem 1.5rem;
+  padding-block: 0.5rem;
   margin-left: auto;
   cursor: pointer;
 }
@@ -132,7 +150,7 @@ body {
   background: none;
   border: none;
   font-size: 1.8rem;
-  padding: 0.5rem 1.5rem;
+  padding-block: 0.5rem;
   margin-left: auto;
   cursor: pointer;
 }
@@ -145,6 +163,7 @@ body {
 
 .headerContainer__navLinks a {
   display: inline-block;
+  font-size: 2.2rem;
   padding: 1.2rem;
   width: 100%;
   color: var(--darkColor);
@@ -152,6 +171,11 @@ body {
 
 .headerContainer__navLinks a:hover {
   background-color: var(--hoverColor);
+}
+.headerContainer__navLinks a.active {
+  text-decoration: underline;
+  text-underline-offset: 1.05rem;
+  text-decoration-thickness: 0.14rem;
 }
 
 /* This is the cliclable area to cloapse the sibar menu by clicking outside of the menu area */
@@ -167,16 +191,31 @@ body {
   display: block;
 }
 
+#initialContainer {
+  height: 400px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+#initialContainer > h2 {
+  font-size: 3rem;
+}
+
+.socialMediaIcons > img {
+  width: 2.5rem;
+}
+
+
 /* Hero Section */
 .hero {
   display: grid;
   gap: 3rem;
   grid-template-rows: 1fr 1fr;
   justify-content: center;
-  background-color: var(--white);
-  background-color: rgba(255, 255, 255, 0.5);
   padding: 20px;
-  box-shadow: 5px 0px 10px -10px var(--steelGrey);
 }
 
 .heroPhoto {
@@ -215,49 +254,55 @@ body {
 
 }
 
-.mainSection {
-  margin-block: 20px;
-  display: grid;
-  gap: 20px;
-  grid-template: none / repeat(4, 1fr);
+#publications {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
 }
-.mainSectionColumn {
-  background-image: linear-gradient(to right, var(--white), var(--white2));
-  max-width: 100%;
-  border-radius: 30px;
-  color: var(--darkColor);
-  text-align: justify;
-  padding: 20px;
-  margin-block: 0;
-  box-shadow: 0px 10px 10px -10px var(--steelGrey);
+
+#teaching {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
 }
-.mainSectionColumn h2 {
-  text-align: center;
-  margin: 0;
+
+#media {
+  height: 400px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+#contact {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
 }
 
 .footerContainer {
-  position: absolute;
-  bottom: 0px;
-  left: 50%;  /* Moves the element from left to the center by 50% */
-  transform: translateX(-50%);  /* Moves the element from the center of itself by -50%, so 50% left */
   width: 100%;
   display: flex;
   align-items: center;
-  max-width: var(--containersWidthMobile);
-  height: 50px;
+  height: 60px;
   color: var(--darkColor);
   background-image: linear-gradient(to right,var(--white), var(--white2));
-  padding: 1rem 1.5rem;
-  margin-top: 4rem;
+  padding: 0 1.5rem 1rem 1.5rem;
 }
-
 
 /*==============600px================*/
 @media screen and (min-width: 600px) {
-  .container {
-    max-width: var(--containersWidthMobile);
-  }
   .belowHeader {
     display: none;
   }
@@ -269,7 +314,6 @@ body {
   }
 
   .headerContainer__navbar {
-    max-width: var(--containersWidthMobile);
     margin: auto;
   }
 
@@ -291,8 +335,8 @@ body {
   .logo > img, .logo > a {
     font-size: 1.5rem;
     height: 1.8rem;
+    padding-left: 0.9rem;
     font-weight: bold;
-    padding-left: 1.2rem;
     flex-basis: 25%;
     color: var(--darkColor);
   }
@@ -313,13 +357,20 @@ body {
     display: inline-block;
     padding-block: calc((var(--headerHeightPC) - 1.5rem) / 2);
     /* padding-inline: 1.2rem; */
+    font-size: 1.1rem;
     padding-inline: clamp(1.4vw, 1.8vw , 1.2rem);
     color: var(--darkColor);
     transition: background-color 150ms ease;
   }
+  .headerContainer__navLinks a.active {
+    text-underline-offset: 0.35rem;
+  }
   
   .headerContainer__navLinks a:hover {
     background-color: var(--hoverColor);
+  }
+  .socialMediaIcons > img {
+    width: 1.4rem;
   }
 
   .hero {
@@ -331,37 +382,40 @@ body {
 
   .footerContainer {
     height: var(--headerHeightPC);
+    padding-inline: 1.2rem;
   }
 }
 
 /*==============768px================*/
 @media screen and (min-width: 768px) {
   .container {
-    width: clamp(768px ,95%, 1024px);
+    width: var(--containersWidthPC);
   }
-  
+  .headerContainer {
+    padding-inline: 0;
+  }
+  .headerContainer__navbar {
+    width: var(--containersWidthPC);
+  }
+  .footerContainer {
+    width: var(--containersWidthPC);
+  }  
 }
 
   /*==============1024px================*/
 @media screen and (min-width: 1024px) {
-  .container {
-    width: clamp(980px ,90%, 1440px);
-  }
   .hero {
     display: grid;
     grid-template-columns: 1fr 3fr;
   }
-  .headerContainer {
-    padding-inline: 3rem;
-  }
-  .footerContainer {
-    padding-inline: 3rem;
+  .headerContainer__navLinks a {
+    font-size: 1.2rem;
   }
 }
 
 /*==============1440px================*/
 @media screen and (min-width: 1440px) {
-  .container {
-    width: clamp(1440px ,90%, 1600px);
+  .headerContainer__navLinks a {
+    font-size: 1.4rem;
   }
 }
