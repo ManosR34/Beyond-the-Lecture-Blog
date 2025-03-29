@@ -1,51 +1,46 @@
-function toggleMenu() {
-    document.querySelector(".headerContainer__navLinks").classList.toggle("active");
-}
 
 const navBar = document.getElementById('navBar');
-const navBarButton = document.getElementById('open-sidebar-button');
+const menuButton = document.getElementById('sidebar-toggle');
+// The following is set in case that we want to use the sidemenu in bigger screens in the future, so clicking ourside of the menu will close the menu
 const overlay = document.getElementById('overlay');
 
 function openSideBar() {
     navBar.classList.add('show');
     overlay.classList.add('show');
-    navBarButton.innerHTML = "&#9747;";
+    menuButton.setAttribute('onclick', 'closeSideBar()');
+    menuButton.innerHTML = "&#9747;";
+    document.body.style.overflow = 'hidden'; //Prevent scroll function
 }
-
 
 function closeSideBar() {
     navBar.classList.remove('show');
     overlay.classList.remove('show');
-    navBarButton.innerHTML = "&#9776;";
+    menuButton.setAttribute('onclick', 'openSideBar()');
+    menuButton.innerHTML = "&#9776;";
+    document.body.style.overflow = '';
 }
 
-/*
-document.addEventListener("DOMContentLoaded", function () {
-const links = document.querySelectorAll(".headerContainer__navLinks a");
-links.forEach((link) => {
-    link.classList.remove("active");
-        if (link.href === window.location.href) {
-        link.classList.add("active");
-    }
-    });
-});
-*/
 
-const sections = document.querySelectorAll('#home, #publications, #teaching, #media, #contact');
+// Detect and underline the link of the current viewport section
+const sections = document.querySelectorAll('.container[id]');
 const navLinks = document.querySelectorAll('.headerContainer__navLinks a');
+
+// Close the menu when a link is selected in it
+navLinks.forEach(button => {
+    button.addEventListener("click", closeSideBar);
+});
 
 window.onscroll = () => {
     let scrollPosition = window.scrollY;
     let windowHeight = window.innerHeight;
     let fullHeight = document.documentElement.scrollHeight;
-
-    let isAtBottom = scrollPosition + windowHeight >= fullHeight - 10; // Small buffer to ensure detection
-
+    let isAtBottom = ((scrollPosition + windowHeight) >= (fullHeight - 90)); // Small buffer to remove the footer
     let activeSection = null;
 
     sections.forEach(sec => {
-        let offset = sec.offsetTop - 200;
-        let height = sec.offsetHeight;
+        let offset = sec.offsetTop - 210;
+        let height = sec.offsetHeight+20;
+        
         let id = sec.getAttribute('id');
 
         if (scrollPosition >= offset && scrollPosition < offset + height) {
@@ -64,8 +59,20 @@ window.onscroll = () => {
     }
 };
 
-
-
-// Detect scrolling attempt beyond the bottom
-
-
+// Add some space to the linked sections, so the sections are always below the header
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // stop default anchor jump
+  
+      const targetId = this.getAttribute('href').substring(1); // remove #
+      const target = document.getElementById(targetId);
+  
+      const offset = 55; // change to your desired offset (e.g., height of fixed header)
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+  
+      window.scrollTo({
+        top: top,
+        behavior: 'smooth'
+      });
+    });
+  });

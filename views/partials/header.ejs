@@ -1,13 +1,14 @@
 <header class="headerContainer">
   <nav class="headerContainer__navbar">
     <!-- <div href="/" class="logo"><a href="/"><img src="./images/LogoName.jpg"></a></div> -->
-    <div href="/" class="logo"><a href="/">V. Karakasis</a></div>
+    <figure href="/" class="logo"><a href="/">V. Karakasis</a></figure>
 
-    <button id="open-sidebar-button" onclick="openSideBar()">&#9776;</button>
+    <button id="sidebar-toggle" onclick="openSideBar()">&#9776;</button>
 
     <ul class="headerContainer__navLinks" id="navBar">
       <li><a href="#home" id="home-btn" class="active">Home</a></li>
-      <li><a href="#publications" id="publications-btn">Publications</a></li>
+      <li><a href="#about" id="about-btn">About</a></li>
+      <li><a href="#publications" id="publications-btn" >Publications</a></li>
       <li><a href="#teaching" id="teaching-btn">Teaching</a></li>
       <li><a href="#media" id="media-btn">Media</a></li>
       <li><a href="#contact" id="contact-btn">Contact</a></li>
@@ -24,6 +25,3 @@
   <div id="overlay" onclick="closeSideBar()" aria-hidden="true"></div>
 </header>
 
-
-
-<script src="/script.js" defer></script>

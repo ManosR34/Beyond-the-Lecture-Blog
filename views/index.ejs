@@ -16,24 +16,25 @@
 <body>
   <%- include("partials/header.ejs") %>
   <div class="backgroundImage"></div>
-  <div class="container" id="initialContainer">
+  <section class="container" id="home">
+    <figure><img src="./images/World Map Color.png"></figure>
     <h2>Vasileios Karakasis, Ph.D</h2>
+    <h3>Professor  &#8226;  Researcher  &#8226;  Author</h3>
+  </section>
+  <section class="container" id="about">
     
-    <h3>Professor  &#9679;  Researcher  &#9679;  Author</h3>
-  </div>
-  <div class="container" id="home">
-    <!-- <div class="belowHeader"></div> -->
-    <div class="hero">
-      <div class="heroPhoto">
-        <img src="./images/Vasilis.jpeg" class="heroPhoto__image">
-        <div class="heroPhoto__text">
+      <figure class="aboutPhoto">
+        <img src="./images/Vasilis.jpeg" class="aboutPhoto__image">
+        <figcaption class="aboutPhoto__text">
           <h3></h3>
-          <p>"If you dance for 5 minutes every day you are 
+          <p>
+            "If you dance for 5 minutes every day you are 
             investing in you happiness and <br> 
-            your economic growth"</p>
-        </div>
-      </div>
-      <div class="heroStatement">
+            your economic growth"
+          </p>
+        </figcaption>
+      </figure>
+      <article class="aboutStatement">
         <p>
           Dr. Pongo is a lecturer and researcher in European Studies at The Hague University of Applied Sciences,
           following a seven-year tenure as a lecturer at Leiden University.
@@ -42,21 +43,21 @@
           His research interests revolve around the European Union's European Neighborhood Policy and EU energy security issues,
           particularly emphasizing external governance.
         </p>
-      </div>
-    </div>
-  </div>
-  <div class="container" id="publications">
+      </article>
+    
+  </section>
+  <section class="container" id="publications">
 
-  </div>
-  <div class="container" id="teaching">
+  </section>
+  <section class="container" id="teaching">
     
-  </div>
-  <div class="container" id="media">
+  </section>
+  <section class="container" id="media">
     
-  </div>
-  <div class="container" id="contact">
+  </section>
+  <section class="container" id="contact">
     
-  </div>
+  </section>
 
     <%- include("partials/footer.ejs") %>
     <script src="/script.js" defer></script>
