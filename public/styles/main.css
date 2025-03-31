@@ -247,7 +247,6 @@ body {
     .aboutStatement {
       text-align: left;
       padding: 2rem;
-      p {}
     }
   }
 }
@@ -323,8 +322,6 @@ body {
     align-items: center;
     padding: 0;
     gap: 0.3rem;
-    li {
-    }
     a {
       font-size: 1.1rem;
       color: var(--darkColor);
