@@ -218,9 +218,10 @@ body {
 #about {
   display: grid;
   gap: 3rem;
-  grid-template-rows: 1fr 1fr;
+  grid-template: 1.5fr 1fr / none;
   justify-content: center;
-  padding: 20px;
+  align-items: center;
+  padding: 1.5rem;
   .aboutPhoto {
     margin: auto;
     display: flex;
@@ -252,12 +253,26 @@ body {
 }
 
 #publications {
-  height: 400px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   justify-content: center;
   align-items: center;
+  padding: 2.5rem 1.5rem;
   gap: 0.8rem;
+  p {
+    padding-block: 1.5rem;
+  }
+  figure {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    img {
+      padding: 1rem;
+      height: 100%;
+      width: max(70%, 300px);
+      object-fit: contain;
+    }
+  }
 }
 
 #teaching {
@@ -368,9 +383,16 @@ body {
   }
 
   #about {
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 2fr;
+    grid-template: none / 1fr 2fr;
     align-items: center;
+  }
+
+  #publications {
+    grid-template: none / 1fr 1fr;
+    figure > img {
+      padding: 1rem 1.5rem;
+      width: 100%;
+    }
   }
 
   .footerContainer {
@@ -438,6 +460,13 @@ body {
     }
   }
 
+  #publications {
+    grid-template: 1fr / 1.5fr 1fr;
+    figure > img {
+      max-height: 550px;
+    }
+  }
+
   .footerContainer {
     width: var(--containersWidthPC);
     padding-block: 0.8rem;
@@ -448,7 +477,7 @@ body {
 @media screen and (min-width: 1024px) {
   #about {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template: 1fr / 1fr 3fr;
   }
   .headerContainer__navLinks{
     max-width: 800px;
@@ -456,6 +485,9 @@ body {
   } 
   a {
     font-size: 1.4rem;
+  }
+  #publications {
+    grid-template: none / 2fr 1fr;
   }
 }
 

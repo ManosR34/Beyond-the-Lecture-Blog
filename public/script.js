@@ -25,10 +25,7 @@ function closeSideBar() {
 const sections = document.querySelectorAll('.container[id]');
 const navLinks = document.querySelectorAll('.headerContainer__navLinks a');
 
-// Close the menu when a link is selected in it
-navLinks.forEach(button => {
-    button.addEventListener("click", closeSideBar);
-});
+
 
 window.onscroll = () => {
     let scrollPosition = window.scrollY;
@@ -59,8 +56,18 @@ window.onscroll = () => {
     }
 };
 
-// Add some space to the linked sections, so the sections are always below the header
+
 navLinks.forEach(link => {
+    // Close the menu when a link is selected in it
+    if (link.classList.contains("socialMediaIcons")){
+        link.setAttribute("target", "_blank");
+        window.open(url);
+    }
+    else{
+        link.addEventListener("click", closeSideBar);
+    }
+
+    // Add some space to the linked sections, so the sections are always below the header
     link.addEventListener('click', function(e) {
       e.preventDefault(); // stop default anchor jump
   
